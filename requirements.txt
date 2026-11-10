@@ -1,0 +1,7 @@
+# Runtime dependencies (tested with the versions shown on 2026-11-08)
+openai>=3.0,<4          # official SDK (Chat Completions, Files, Batches)
+pydantic>=2.7,<3        # input/output schemas and validation
+python-dotenv>=1.0      # load .env
+tenacity>=8.2           # retries with randomized exponential backoff
+streamlit>=1.67         # web interface (tested with 1.67; uses st.iframe and width="stretch")
+openbatch>=0.0.4        # optional: builds Batch API JSONL files (falls back to a native writer)
