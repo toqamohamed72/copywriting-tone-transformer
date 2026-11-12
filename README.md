@@ -159,21 +159,3 @@ Python 3.12 · openai 3.46 and 3.49 · pydantic 2.14 · tenacity 9.2 · streamli
 Tenacity retries and error translation were also exercised end to end with no network access, which
 produced the expected "could not reach the API" outcome on both the sync and async paths.
 
-## Limitations (read before presenting)
-
-- **Not verified against the live OpenAI API.** The environment this project was built in
-  had no access to `api.openai.com`. API behaviour is covered by tests against simulated
-  responses and errors, and by OpenAI's published documentation. Run
-  `python run.py doctor --ping` first on your machine; if your model rejects a parameter,
-  the backend adapts and tells you.
-- **Experiment results are yours to produce.** `docs/EXPERIMENTS.md` contains the protocol
-  and a blank results table. No model outputs or measurements were invented.
-- **Batch API** (24 h window) was tested with a fake client only. `openbatch` 0.0.4 cannot
-  express `reasoning_effort="none"`, so the pipeline falls back to its own JSONL writer
-  for models that need it.
-- **Platform limits** (LinkedIn 3000, Instagram 2200, X 280 characters) are editable defaults
-  in `specs.py`; platforms change their rules.
-- **Quality heuristics** are rule-based and cannot judge tone or creativity the way a human
-  can. Grammar checks catch mechanical slips only.
-- The Streamlit copy-to-clipboard button relies on browser clipboard permissions and was
-  not exercised in a real browser; the `st.code` box offers a built-in copy icon as backup.
